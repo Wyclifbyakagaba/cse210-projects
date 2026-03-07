@@ -1,9 +1,23 @@
 using System;
 
-class Program
+class Exercise4
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Console.WriteLine("Hello World! This is the Exercise4 Project.");
+        List<string> fruits = new List<string> { "Apple", "Banana", "Cherry", "Date", "Elderberry" };
+        //Display the list of fruits
+        Console.WriteLine("List of Fruits:");
+        foreach (string fruit in fruits)
+        {
+            Console.WriteLine(fruit);
+        }
+        // remove an item banana
+        fruits.Remove("Banana");
+        // display the list of fruits after removing banana
+        Console.WriteLine("\nList of Fruits after removing Banana:");
+        foreach (string fruit in fruits)
+        {
+            Console.WriteLine(fruit);
+        }
     }
 }

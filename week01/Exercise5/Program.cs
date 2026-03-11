@@ -1,16 +1,37 @@
 using System;
 
-class Exercise5
+class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Exercise5 Project.");
-        //ask the user to enter a number
-        Console.Write("Please enter a number: ");
-        string input = Console.ReadLine();
-        //convert the input to an integer
-        int number = int.Parse(input);
-        //display the number
-        Console.WriteLine("You entered: " + number);
+        DisplayMessage();
+        string name = GetName();
+        int number = GetFavoriteNumber();
+
+        int squared = SquareNumber(number);
+
+        Console.WriteLine($"{name}, the square of your number is {squared}");
+    }
+
+    static void DisplayMessage()
+    {
+        Console.WriteLine("Welcome to the Program!");
+    }
+
+    static string GetName()
+    {
+        Console.Write("Enter your name: ");
+        return Console.ReadLine();
+    }
+
+    static int GetFavoriteNumber()
+    {
+        Console.Write("Enter your favorite number: ");
+        return int.Parse(Console.ReadLine());
+    }
+
+    static int SquareNumber(int number)
+    {
+        return number * number;
     }
 }

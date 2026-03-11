@@ -1,19 +1,20 @@
 using System;
 
-class Exercise3
+class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Exercise3 Project.");
-        // Prompt the user to enter a number
-        Console.Write("Enter a number to count up to: ");
-        int limit = int.Parse(Console.ReadLine());
+        int number = -1;
+        int sum = 0;
 
-        Console.WriteLine($"Counting from 1 to {limit}:");
-
-        for (int i = 1; i <= limit; i++)
+        while (number != 0)
         {
-            Console.WriteLine(i);
+            Console.Write("Enter a number (0 to quit): ");
+            number = int.Parse(Console.ReadLine());
+
+            sum += number;
         }
+
+        Console.WriteLine($"The sum is: {sum}");
     }
 }

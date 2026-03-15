@@ -1,23 +1,42 @@
 using System;
+using System.Collections.Generic;
 
-class Exercise4
+class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        List<string> fruits = new List<string> { "Apple", "Banana", "Cherry", "Date", "Elderberry" };
-        //Display the list of fruits
-        Console.WriteLine("List of Fruits:");
-        foreach (string fruit in fruits)
+        List<int> numbers = new List<int>();
+
+        int number = -1;
+
+        while (number != 0)
         {
-            Console.WriteLine(fruit);
+            Console.Write("Enter a number (0 to quit): ");
+            number = int.Parse(Console.ReadLine());
+
+            if (number != 0)
+            {
+                numbers.Add(number);
+            }
         }
-        // remove an item banana
-        fruits.Remove("Banana");
-        // display the list of fruits after removing banana
-        Console.WriteLine("\nList of Fruits after removing Banana:");
-        foreach (string fruit in fruits)
+
+        int sum = 0;
+        int largest = numbers[0];
+
+        foreach (int num in numbers)
         {
-            Console.WriteLine(fruit);
+            sum += num;
+
+            if (num > largest)
+            {
+                largest = num;
+            }
         }
+
+        double average = (double)sum / numbers.Count;
+
+        Console.WriteLine($"Sum: {sum}");
+        Console.WriteLine($"Average: {average}");
+        Console.WriteLine($"Largest number: {largest}");
     }
 }

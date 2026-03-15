@@ -4,24 +4,41 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Exercise2 Project.");
-        // Ask the user to enter a number
-        Console.Write("Please enter a number: ");
-        int number = int.Parse(Console.ReadLine());
-        // Check if the number is even or odd
-        if (number % 2 == 0)
+        Console.Write("Enter your grade percentage: ");
+        int grade = int.Parse(Console.ReadLine());
+
+        string letter;
+
+        if (grade >= 90)
         {
-            Console.WriteLine($"{number} is an even number.");
+            letter = "A";
+        }
+        else if (grade >= 80)
+        {
+            letter = "B";
+        }
+        else if (grade >= 70)
+        {
+            letter = "C";
+        }
+        else if (grade >= 60)
+        {
+            letter = "D";
         }
         else
         {
-            Console.WriteLine($"{number} is an odd number.");
+            letter = "F";
         }
-            
-            if (number % 3 == 0)
-                {
-                    Console.WriteLine($"{number} is also divisible by 3.");
-                }
-            }
+
+        Console.WriteLine($"Your letter grade is {letter}");
+
+        if (grade >= 70)
+        {
+            Console.WriteLine("You passed!");
         }
-    
+        else
+        {
+            Console.WriteLine("Better luck next time.");
+        }
+    }
+}

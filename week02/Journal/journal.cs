@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 
 public class Journal
-{
-    private List<Entry> _entries = new List<Entry>();
-    private const string Separator = "|";
-
+{do
     public void AddEntry(Entry newEntry)
     {
         _entries.Add(newEntry);

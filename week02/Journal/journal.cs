@@ -4,81 +4,49 @@ using System.IO;
 
 public class Journal
 {
-    private List<Entry> _entries = new List<Entry>();
-    private const string Separator = "|";
+    public List<Entry> _entries = new List<Entry>();
 
-    public void AddEntry(Entry newEntry)
+    public void AddEntry(Entry entry)
     {
-        _entries.Add(newEntry);
+        _entries.Add(entry);
     }
 
     public void DisplayAll()
     {
-        if (_entries.Count == 0)
+        foreach (Entry entry in _entries)
         {
-            Console.WriteLine("No entries available.\n");
-            return;
-        }
-
-        foreach (Entry e in _entries)
-        {
-            e.Display();
+            entry.Display();
         }
     }
 
     public void SaveToFile(string filename)
     {
-        try
+        using (StreamWriter outputFile = new StreamWriter(filename))
         {
-            using (StreamWriter writer = new StreamWriter(filename))
+            foreach (Entry entry in _entries)
             {
-                foreach (Entry e in _entries)
-                {
-                    writer.WriteLine($"{e._date}{Separator}{e._promptText}{Separator}{e._entryText}");
-                }
+                outputFile.WriteLine($"{entry._date}|{entry._prompt}|{entry._response}|{entry._mood}");
             }
-            Console.WriteLine($"Saved to {filename}");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error while saving file.");
-            Console.WriteLine(ex.Message);
         }
     }
 
     public void LoadFromFile(string filename)
     {
-        try
-        {
-            if (!File.Exists(filename))
-            {
-                Console.WriteLine("File not found.");
-                return;
-            }
+        _entries.Clear();
 
-            string[] lines = File.ReadAllLines(filename);
-            _entries.Clear();
+        string[] lines = File.ReadAllLines(filename);
 
-            foreach (string line in lines)
-            {
-                string[] parts = line.Split(Separator);
-                if (parts.Length == 3)
-                {
-                    Entry entry = new Entry
-                    {
-                        _date = parts[0],
-                        _promptText = parts[1],
-                        _entryText = parts[2]
-                    };
-                    _entries.Add(entry);
-                }
-            }
-            Console.WriteLine("Loaded journal entries.");
-        }
-        catch (Exception ex)
+        foreach (string line in lines)
         {
-            Console.WriteLine("Error reading file.");
-            Console.WriteLine(ex.Message);
+            string[] parts = line.Split("|");
+
+            Entry entry = new Entry();
+            entry._date = parts[0];
+            entry._prompt = parts[1];
+            entry._response = parts[2];
+            entry._mood = parts[3];
+
+            _entries.Add(entry);
         }
     }
 }

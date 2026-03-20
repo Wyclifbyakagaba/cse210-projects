@@ -40,7 +40,7 @@ class Program
                     };
 
                     myJournal.AddEntry(entry);
-                    Console.WriteLine("✅ Entry added!\n");
+                    Console.WriteLine(" Entry added!\n");
                     break;
 
                 case 2:

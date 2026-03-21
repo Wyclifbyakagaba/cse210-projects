@@ -11,7 +11,7 @@ class Program
         Scripture scripture = new Scripture(reference,
             "For God so loved the world that he gave his only begotten Son");
 
-        while (true)
+        while (true) o
         {
             Console.Clear();
             Console.WriteLine(scripture.GetDisplayText());

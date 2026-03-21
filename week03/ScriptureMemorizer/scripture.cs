@@ -15,7 +15,7 @@ public class Scripture
         string[] parts = text.Split(' ');
         foreach (string part in parts)
         {
-            _words.Add(new Word(part));
+            _words.Add(new Word(part));v
         }
     }
 

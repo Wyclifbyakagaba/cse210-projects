@@ -1,16 +1,11 @@
-using System;
-
-public class Entry
+class Entry
 {
-    public string _date = "";
-    public string _promptText = "";
-    public string _entryText = "";
+    private string _date;
+    private string _prompt;
+    private string _response;
 
-    public void Display()
+    public string Display()
     {
-        Console.WriteLine("\n--- Entry ---");
-        Console.WriteLine($"Date: {_date}");
-        Console.WriteLine($"Prompt: {_promptText}");
-        Console.WriteLine($"Response: {_entryText}\n");
+        return $"{_date} - {_prompt}\n{_response}";
     }
 }

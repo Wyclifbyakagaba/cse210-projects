@@ -2,27 +2,25 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         Journal myJournal = new Journal();
         PromptGenerator promptGen = new PromptGenerator();
+        myJournal.LoadFromFile();
+
         int choice = 0;
 
         while (choice != 5)
         {
-            Console.WriteLine("\n--- Journal Menu ---");
-            Console.WriteLine("1. Write a new entry");
-            Console.WriteLine("2. Display all entries");
-            Console.WriteLine("3. Save journal");
-            Console.WriteLine("4. Load journal");
-            Console.WriteLine("5. Quit");
-            Console.Write("Enter choice: ");
+            Console.WriteLine("\nJournal Menu:");
+            Console.WriteLine("1. Write New Entry");
+            Console.WriteLine("2. Display Journal");
+            Console.WriteLine("3. Save Journal");
+            Console.WriteLine("4. Load Journal");
+            Console.WriteLine("5. Exit");
 
-            if (!int.TryParse(Console.ReadLine(), out choice))
-            {
-                Console.WriteLine("Please enter a valid number.");
-                continue;
-            }
+            Console.Write("Choose an option: ");
+            int.TryParse(Console.ReadLine(), out choice);
 
             switch (choice)
             {
@@ -40,7 +38,7 @@ class Program
                     };
 
                     myJournal.AddEntry(entry);
-                    Console.WriteLine(" Entry added!\n");
+                    Console.WriteLine("Entry added!\n");
                     break;
 
                 case 2:
@@ -49,15 +47,11 @@ class Program
                     break;
 
                 case 3:
-                    Console.Write("Enter filename to save (e.g., journal.txt): ");
-                    string saveFile = Console.ReadLine() ?? "journal.txt";
-                    myJournal.SaveToFile(saveFile);
+                    myJournal.SaveToFile();
                     break;
 
                 case 4:
-                    Console.Write("Enter filename to load: ");
-                    string loadFile = Console.ReadLine() ?? "journal.txt";
-                    myJournal.LoadFromFile(loadFile);
+                    myJournal.LoadFromFile();
                     break;
 
                 case 5:

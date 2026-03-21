@@ -2,13 +2,13 @@ using System;
 
 public class PromptGenerator
 {
-    private string[] _prompts = new string[]
+    private string[] _prompts =
     {
         "What made you happy today?",
-        "Describe a challenge you overcame.",
-        "What did you learn today?",
-        "What are you grateful for?",
-        "Write about someone who helped you."
+        "Describe a challenge you faced.",
+        "Write about a memorable moment.",
+        "What are you grateful for today?",
+        "What is a goal you want to achieve?"
     };
 
     private Random _random = new Random();

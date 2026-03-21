@@ -1,11 +1,23 @@
-class Entry
-{
-    private string _date;
-    private string _prompt;
-    private string _response;
+using System;
 
-    public string Display()
+namespace JournalApp
+{
+    class Entry
     {
-        return $"{_date} - {_prompt}\n{_response}";
+        public DateTime Date { get; set; }
+        public string Prompt { get; set; }
+        public string Text { get; set; }
+
+        public Entry(string prompt, string text)
+        {
+            Date = DateTime.Now;
+            Prompt = prompt;
+            Text = text;
+        }
+
+        public string Display()
+        {
+            return $"{Date.ToShortDateString()} - {Prompt}\n{Text}\n";
+        }
     }
 }

@@ -9,7 +9,7 @@ public class Word
         _isHidden = false;
     }
 
-    public void Hide()v
+    public void Hide()
     {
         _isHidden = true;
     }

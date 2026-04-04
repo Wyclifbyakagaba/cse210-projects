@@ -11,7 +11,7 @@ class BreathingActivity : Activity
         _duration = 10;
     }
 
-    public void startBreathing()
+    public void DoBreathing()
     {
         StartActivity();
         for (int i = 0; i < _duration / 5; i++)

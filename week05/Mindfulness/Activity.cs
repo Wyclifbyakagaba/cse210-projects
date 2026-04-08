@@ -1,10 +1,11 @@
 using System;
-using System.Threading; // Needed for Thread.Sleep
+using System.Threading;
 
 public class Activity
 { 
     protected string _activityName;
     protected string _description;
+    protected int _duration; // ✅ ADD THIS
 
     public void StartActivity()
     {
@@ -23,6 +24,6 @@ public class Activity
             Console.Write(".");
             Thread.Sleep(1000);
         }
-        Console.WriteLine(); // Optional: move to next line after animation
+        Console.WriteLine();
     }
 }

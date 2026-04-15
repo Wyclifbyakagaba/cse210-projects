@@ -7,9 +7,9 @@ class Program
     {
         List<Activity> activities = new List<Activity>();
 
-        activities.Add(new Running("03 Nov 2022", 30, 5.0));
-        activities.Add(new Cycling("04 Nov 2022", 45, 20.0));
-        activities.Add(new Swimming("05 Nov 2022", 40, 30));
+        activities.Add(new Running("03 april 2026", 30, 5.0));
+        activities.Add(new Cycling("04 april 2026", 45, 20.0));
+        activities.Add(new Swimming("05 april 2026", 40, 30));
 
         foreach (Activity activity in activities)
         {
